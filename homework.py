@@ -7,11 +7,11 @@ import random
 #you will pick up quick and dont worry to much on understanding everything cuz i gotchu
 #ima give you some homework to practice.
 
-fruit = ["apple", "pear", "orange"]
+#fruit = ["apple", "pear", "orange"]
 
 #arrays start with 0 as the first number so pear is  gonna be 1 and apple is 0.
 #the numbers dont mean anything but thats so you know what is what.
-print(fruit[1])
+#print(fruit[1])
 
 
 #so def is used to define a function.
@@ -42,7 +42,7 @@ def salad():
     #we only use for loops when we know we have a handful of numbers that we can keep up with.
         print(dinner[i])
         i = i + 1
-salad()
+#salad()
 #okay so this may or may not be confusing but ima break it down.
 #so "i" stands for incrimate. just a fancy way of saying we want to count up like 0 1 2 3.
 #when we say i = i +1 we are saying i = 0 + 1, i = 1 + 1, i = 2 + 1,etc.
@@ -79,7 +79,7 @@ def relaxBro():
             print("idk im just making stuff up lol just imagine something")
 
 
-relaxBro()
+#relaxBro()
 #this code hypothetically could run for hours lol.
 #this function uses a while loop, comparison operators, if statements, and methods.
 #thats alot if you havent done it before.
@@ -113,4 +113,81 @@ def rocky():
         #make a round counter
         #use a while loop for it.
         #use the hash tag on the other code so its commented out and doesnt run.
-rocky()
+#rocky()
+
+
+
+
+#lets make rock paper scissors with recursion.
+#theres alot of ways to make this game so try making it different if you can.
+#im not gonna treat you like a rookie anymore so pay close attention.
+#you need to study this hard because the card game we make will be very tricky.
+
+def game():
+
+    def rounds(gameRounds):
+        
+        if gameRounds == 4:
+            print("game end")
+            return
+        else:
+            print(f"Round {gameRounds}")
+            gameLogic(gameRounds + 1)
+            gameRounds = gameRounds + 1
+
+    def playerChoice():
+        player = input("rock paper scissor:    ").lower()
+        if player not in ["rock", "paper", "scissors"]:
+            print("gotta make a valid choice dude")
+            return playerChoice()
+        return player
+    
+
+    def aiChoice():
+        print("thinking...")
+        ai = ["rock", "paper", "scissors"]
+        fate = random.choice(ai)
+        print(f"AI chose: {fate}")
+        return fate
+            
+            
+    def gameLogic(currentRounds):
+        player = playerChoice()
+        ai = aiChoice()
+
+        if player == ai:
+            print("its a tie")
+            
+
+        elif player == "rock" and ai == "scissors" or player == "paper" and ai == "rock" or player == "scissors" and ai == "paper":
+            print("player wins that round\n")
+            
+        else:
+            print("ai wins that round\n")
+            
+
+        rounds(currentRounds)
+        
+
+
+
+    rounds(1)
+
+game()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
